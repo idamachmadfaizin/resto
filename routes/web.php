@@ -71,6 +71,7 @@ Route::prefix('owner')->middleware('auth', 'role:owner')->name('owner.')->group(
     });
 });
 
+//landing page
 Route::get('/', 'User\UserController@index')->name('user.index');
 
 Route::get('/job-details/{id}', 'User\UserController@show')->name('user.show');
@@ -91,7 +92,7 @@ Route::prefix('admin')->middleware('auth', 'role:admin')->name('admin.')->group(
     });
 }); 
 
-Route::prefix('user')->middleware('auth', 'role:employees')->name('user.')->group(function(){
+Route::prefix('user')->middleware('auth', 'role:employee')->name('user.')->group(function(){
     Route::resource('/view', 'User\ViewController');  
-    Route::resource('resign', 'User\ResignController'); //route Resign for user
+    Route::resource('/resign', 'User\ResignController'); //route Resign for user
 });

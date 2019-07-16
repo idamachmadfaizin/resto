@@ -19,9 +19,10 @@ class ResignController extends Controller
      */
     public function index()
     {
-        $vacancy = Vacancy::find(2);
+        $restaurant = Restaurant::get();
+        $vacancy = Vacancy::find(1);
         //$vacancy->restaurant->city;
-        return view('', ['vacancy' => $vacancy]);
+        return view('user.resign.create', ['restaurant' => $restaurant ,'vacancy' => $vacancy]);
     }
     
     /**

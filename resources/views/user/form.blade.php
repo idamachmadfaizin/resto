@@ -22,8 +22,7 @@
                         <div class="row form-group">
                             <div class="col-md-12 mb-3 mb-md-0">
                                 <label class="font-weight-bold" for="email">Email</label>
-                                <input type="text" id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ auth()->user()->email }}"
-                                     name="email" disabled>
+                                <input type="text" id="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" value="{{ auth()->user()->email }}" name="email" disabled>
                             </div>
                         </div>
                         <div class="row form-group">
@@ -50,15 +49,14 @@
                         <div class="row form-group">
                             <div class="col-md-12 mb-3 mb-md-0">
                                 <label class="font-weight-bold" for="gender">Jenis Kelamin</label><br>
-                                <input type="radio" name="sex" value="1" @if(old('sex')) checked @endif> Laki-laki <br>
-                                <input type="radio" name="sex" value="2" @if(!old('sex')) checked @endif> Perempuan <br>
+                                <input type="radio" name="sex" value="1" @if($user->sex == 'pria') checked @endif> Pria <br>
+                                <input type="radio" name="sex" value="2" @if($user->sex == 'wanita') checked @endif> Wanita <br>
                             </div>
                         </div>
                         <div class="row form-group">
                             <div class="col-md-12 mb-3 mb-md-0">
-                                <label class="font-weight-bold" for="username">Tanggal Lahir </label><span>
-                                </span>
-                                <input type="date" name="birth_day" value="{{ auth()->user()->birth_day }}">
+                                <label class="font-weight-bold" for="birth_day">Tanggal Lahir</label>
+                                <input type="date" name="birth_day" value="{{ auth()->user()->birth_day }}" class="form-control">
                             </div>
                         </div>
                         <div class="row form-group">

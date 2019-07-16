@@ -42,7 +42,7 @@ class RatingController extends Controller
         $resign = Resign::where([
             ['restaurant_id', $restaurant->id],
             ['user_id', $user->id]
-        ])->get();
+        ])->first();
         $resign->resign_status = 2;
         $resign->save();
 
@@ -53,6 +53,6 @@ class RatingController extends Controller
         $withHelper = new WithHelper;
         $with = $withHelper->withCheck($saved);
 
-        return redirect()->route('owner.restaurant.resign', $restaurant)->with($with['withKey'], $with['withValue']);
+        return redirect()->route('owner.restaurant.resign.index', $restaurant)->with($with['withKey'], $with['withValue']);
     }
 }

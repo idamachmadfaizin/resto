@@ -1,7 +1,8 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
+@extends('user.default')
 
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 150px; margin-bottom:200px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
